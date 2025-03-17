@@ -132,10 +132,10 @@ query GetPosts {
   }
 }
 """
-```
 print("Paste this query in Hasura's GraphQL Explorer:")
 print(query_posts)
 ```
+
 #### **Step 21: Create a Relationship Between Users and Posts**
 ```
 relationship_yaml = """---
@@ -160,11 +160,13 @@ with open("app/metadata/Posts.hml", "a") as f:
     f.write(relationship_yaml)
 print("Relationship added to metadata.")
 ```
+
 #### **Step 22: Final Rebuild and Restart**
 ```
 !ddn supergraph build local
 !ddn run docker-start
 ```
+
 #### **Step 23: Query Nested Data Using Relationship**
 ```
 nested_query = """
