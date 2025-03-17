@@ -9,8 +9,8 @@ This repo contains a step-by-step guide for setting up Hasura DDN with MongoDB, 
 ```
 !ddn doctor
 ```
-## **Step 3: Install Docker (Ensure Docker is Installed and Running)**
-## If Docker is not installed, follow instructions from: https://docs.docker.com/get-docker/
+#### Step 3: Install Docker (Ensure Docker is Installed and Running)
+#### If Docker is not installed, follow instructions from: https://docs.docker.com/get-docker/
 
 ## **Step 4: Install `mongosh` (MongoDB Shell)**
 ## Visit https://www.mongodb.com/try/download/shell to download and install `mongosh`
