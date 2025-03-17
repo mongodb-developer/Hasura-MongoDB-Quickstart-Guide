@@ -1,39 +1,39 @@
 # Hasura-MongoDB-Quickstart-Guide
 This repo contains a step-by-step guide for setting up Hasura DDN with MongoDB, including schema introspection, metadata management, and GraphQL query execution.
 
-### **Step 1: Install Hasura DDN CLI**
+# **Step 1: Install Hasura DDN CLI**
 ```
 !curl -L https://graphql-engine-cdn.hasura.io/ddn/cli/v4/get.sh | bash
 ```
-### **Step 2: Validate Installation**
+# **Step 2: Validate Installation**
 ```
 !ddn doctor
 ```
-### **Step 3: Install Docker (Ensure Docker is Installed and Running)**
-## If Docker is not installed, follow instructions from: https://docs.docker.com/get-docker/
+# **Step 3: Install Docker (Ensure Docker is Installed and Running)**
+# If Docker is not installed, follow instructions from: https://docs.docker.com/get-docker/
 
-### **Step 4: Install `mongosh` (MongoDB Shell)**
-## Visit https://www.mongodb.com/try/download/shell to download and install `mongosh`
+# **Step 4: Install `mongosh` (MongoDB Shell)**
+# Visit https://www.mongodb.com/try/download/shell to download and install `mongosh`
 
-### **Step 5: Authenticate Hasura DDN CLI**
+# **Step 5: Authenticate Hasura DDN CLI**
 ```
 !ddn auth login  # This will open a browser window for authentication
 ```
-### **Step 6: Create a New Hasura DDN Project**
+# **Step 6: Create a New Hasura DDN Project**
 ```
 !ddn supergraph init my-project && cd my-project
 ```
-### **Step 7: Initialize the MongoDB Connector**
+# **Step 7: Initialize the MongoDB Connector**
 ```
 !ddn connector init my_mongo -i  # Select MongoDB from the dropdown and confirm port
 ```
-### **Step 8: Configure MongoDB Connection**
+# **Step 8: Configure MongoDB Connection**
 # Set connection string to MongoDB
 ```
 MONGO_URI = "mongodb://local.hasura.dev:27017/my_database"
 print(f"MongoDB connection set: {MONGO_URI}")
 ```
-### **Step 9: Create Docker Compose File for MongoDB**
+# **Step 9: Create Docker Compose File for MongoDB**
 ```
 compose_content = """services:
   mongodb:
@@ -46,11 +46,11 @@ with open("app/connector/my_mongo/compose.mongo.yaml", "w") as f:
     f.write(compose_content)
 print("Docker Compose file created.")
 ```
-### **Step 10: Start MongoDB Container**
+# **Step 10: Start MongoDB Container**
 ```
 !docker compose -f app/connector/my_mongo/compose.mongo.yaml up -d
 ```
-### **Step 11: Seed MongoDB with Initial Data**
+# **Step 11: Seed MongoDB with Initial Data**
 ```
 !docker exec -it mongodb mongosh my_database --eval """
 db.users.insertMany([
@@ -60,23 +60,23 @@ db.users.insertMany([
 ]);
 """
 ```
-### **Step 12: Introspect MongoDB Schema**
+# **Step 12: Introspect MongoDB Schema**
 ```
 !ddn connector introspect my_mongo
 ```
-### **Step 13: Track the Collection as a Model**
+# **Step 13: Track the Collection as a Model**
 ```
 !ddn models add my_mongo users
 ```
-### **Step 14: Create a Local Build**
+# **Step 14: Create a Local Build**
 ```
 !ddn supergraph build local
 ```
-### **Step 15: Start Local Hasura DDN Services**
+# **Step 15: Start Local Hasura DDN Services**
 ```
 !ddn run docker-start
 ```
-### **Step 16: Open Hasura Console and Run a Query**
+# **Step 16: Open Hasura Console and Run a Query**
 ```
 !ddn console --local  # Open the GraphQL console
 ```
@@ -127,6 +127,7 @@ query GetPosts {
   }
 }
 """
+```
 print("Paste this query in Hasura's GraphQL Explorer:")
 print(query_posts)
 ```
