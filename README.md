@@ -94,7 +94,8 @@ query {
 """
 print("Paste this query in Hasura's GraphQL Explorer:")
 print(query)
-``
+```
+
 #### **Step 17: Add a New Collection (Posts)**
 ```
 !docker exec -it mongodb mongosh my_database --eval """
@@ -106,13 +107,16 @@ db.posts.insertMany([
 ]);
 """
 ```
+
 #### **Step 18: Refresh Metadata & Rebuild**
 ```
 !ddn connector introspect my_mongo
 !ddn model add my_mongo posts
 !ddn supergraph build local
 ```
+
 #### **Step 19: Restart Services**
+
 ```
 !ddn run docker-start
 ```
