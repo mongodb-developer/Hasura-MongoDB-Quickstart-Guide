@@ -1,5 +1,5 @@
 #### Hasura-MongoDB-Quickstart-Guide 
-![Your Image](here is the correct link https://drive.google.com/file/d/1s_m_aZdKW5BbHR9vvnIuj6vficn3KSlS/view?usp=drive_link)
+![Your Image](https://drive.google.com/file/d/1s_m_aZdKW5BbHR9vvnIuj6vficn3KSlS/view?usp=drive_link)
 
 
 This repo contains a step-by-step guide for setting up Hasura DDN with MongoDB, including schema introspection, metadata management, and GraphQL query execution.
